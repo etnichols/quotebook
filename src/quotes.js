@@ -557,4 +557,12 @@ module.exports = [
       'Most days, my body did not want to practice, but I convinced it that sitting still and writing were a path to memory.',
     author: "Kiese Laymon, 'Heavy'",
   },
+  {
+    quote: `Suddenly - I  \nShone in all my might  \n and morning rand its round.  \n Always to shine, to shine everywhere  \n to the very depths of the last days,  \n to shine -  \n and to hell with everything else!  \n That is my motto -  \n and the sun's!`,
+    author: "Amor Towles, 'A Gentleman in Moscow'",
+  },
+  {
+    quote: `Judge a man not on how he treats his equals, but how he treats those beneath him.`,
+    author: "Unknown",
+  },
 ]

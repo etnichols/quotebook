@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import ReactMarkdown from 'react-markdown'
-import { List } from 'immutable'
+import React, { useEffect, useState } from 'react'
 
 import Control from './components/Control'
-
-import quotes from './quotes'
+import { List } from 'immutable'
+import ReactMarkdown from 'react-markdown'
 import colors from './colors'
+import quotes from './quotes'
 
 const shuffled = List(shuffle(quotes))
 const bgcolors = List(colors)
@@ -50,7 +49,7 @@ const App = (props) => {
       }}
     >
       <h1 className="text-white text-2xl h-16 p-12 app-header">Quotebook</h1>
-      <div className="bg-white text-center text-base p-8 m-4 md:w-5/12 md:mx-auto rounded-md quote-modal">
+      <div className="bg-white text-center text-base p-8 m-4 md:w-5/12 md:mx-auto rounded-md quote-modal leading-8">
         <ReactMarkdown>{quoteWithQuotes}</ReactMarkdown>
         <br />
         <hr />
