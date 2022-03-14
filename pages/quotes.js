@@ -563,6 +563,6 @@ module.exports = [
   },
   {
     quote: `Judge a man not on how he treats his equals, but how he treats those beneath him.`,
-    author: "Unknown",
+    author: 'Unknown',
   },
 ]
