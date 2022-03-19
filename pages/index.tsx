@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
-import Head from 'next/head'
 import { List } from 'immutable'
 import type { NextPage } from 'next'
 import QuoteModal from '../components/quotemodal'
 import quotes from './quotes'
 import { shuffle } from '../utils/shuffle'
-import styles from '../styles/Home.module.css'
 
 const shuffled = List(shuffle(quotes))
 
@@ -29,8 +27,6 @@ const Home: NextPage = () => {
     return colors.get(Math.floor(Math.random() * colors.size))
   }
 
-  console.dir(randomColor())
-
   const handleNextButton = () => {
     // Wrap to beginning if user hits the end of the quote array.
     const next = index === shuffled.size - 1 ? 0 : index + 1
@@ -50,17 +46,7 @@ const Home: NextPage = () => {
   }, [index])
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>quotebook.xyz</title>
-        <meta name="description" content="A simple quotebook" />
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          href="https://fonts.googleapis.com/css?family=Arvo:400,700|Open+Sans"
-          rel="stylesheet"
-        />
-      </Head>
-
+    <>
       <main
         className="text-center content-center overflow-auto h-screen"
         style={{
@@ -68,7 +54,7 @@ const Home: NextPage = () => {
           transition: 'background-color 1s ease',
         }}
       >
-        <h1 className="text-white text-2xl h-16 p-12 app-header">Quotebook</h1>
+        <h1 className="text-white text-3xl h-16 p-12 app-header">Quotebook</h1>
         <QuoteModal
           quoteData={currentQuote}
           handleBackButton={handleBackButton}
@@ -76,9 +62,8 @@ const Home: NextPage = () => {
         />
         {/* <QuoteList quotes={shuffled.slice(0, 10)} /> */}
       </main>
-
       {/* <footer className={styles.footer}>Quotebook</footer> */}
-    </div>
+    </>
   )
 }
 
