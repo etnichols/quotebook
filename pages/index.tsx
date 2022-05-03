@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
+import Control from '../components/control'
 import { List } from 'immutable'
 import type { NextPage } from 'next'
-import QuoteModal from '../components/quotemodal'
+import Quote from '../components/quote'
 import quotes from './quotes'
 import { shuffle } from '../utils/shuffle'
 
@@ -41,8 +42,7 @@ const Home: NextPage = () => {
   }
 
   useEffect(() => {
-    const nextQuote = shuffled.get(index)
-    setCurrentQuote(nextQuote)
+    setCurrentQuote(shuffled.get(index))
   }, [index])
 
   return (
@@ -55,11 +55,24 @@ const Home: NextPage = () => {
         }}
       >
         <h1 className="text-white text-3xl h-16 p-12 app-header">Quotebook</h1>
-        <QuoteModal
-          quoteData={currentQuote}
-          handleBackButton={handleBackButton}
-          handleNextButton={handleNextButton}
-        />
+        <Quote quoteData={currentQuote} />
+        <div className="text-center p-12">
+          <Control
+            width="40"
+            height="40"
+            icon="arrow-back"
+            onClickFunction={handleBackButton}
+          />
+          <Control
+            width={'40'}
+            height={'40'}
+            icon="arrow-forward"
+            onClickFunction={handleNextButton}
+          />
+        </div>
+        <div className="text-white">
+          List view
+        </div>
         {/* <QuoteList quotes={shuffled.slice(0, 10)} /> */}
       </main>
       {/* <footer className={styles.footer}>Quotebook</footer> */}
