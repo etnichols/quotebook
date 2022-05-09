@@ -4,6 +4,7 @@ import Control from '../components/control'
 import { List } from 'immutable'
 import type { NextPage } from 'next'
 import Quote from '../components/quote'
+import QuoteList from '../components/quotelist'
 import quotes from './quotes'
 import { shuffle } from '../utils/shuffle'
 
@@ -54,26 +55,44 @@ const Home: NextPage = () => {
           transition: 'background-color 1s ease',
         }}
       >
-        <h1 className="text-white text-3xl h-16 p-12 app-header">Quotebook</h1>
-        <Quote quoteData={currentQuote} />
-        <div className="text-center p-12">
-          <Control
-            width="40"
-            height="40"
-            icon="arrow-back"
-            onClickFunction={handleBackButton}
-          />
-          <Control
-            width={'40'}
-            height={'40'}
-            icon="arrow-forward"
-            onClickFunction={handleNextButton}
-          />
+        <h1 className="text-white text-3xl my-8 drop-shadow-sm">Quotebook</h1>
+        <div className="flex flex-row justify-around">
+          <button
+            onClick={() => setViewMode(viewMode === 'LIST' ? 'MODAL' : 'LIST')}
+            className="flex mb-4 text-white"
+          >
+            {viewMode === 'MODAL' ? 'See all' : 'Single quote view'}
+          </button>
+          <button
+            onClick={() => setViewMode(viewMode === 'LIST' ? 'MODAL' : 'LIST')}
+            className="flex mb-4 text-white"
+          >
+            Starred
+          </button>
         </div>
-        <div className="text-white">
-          List view
-        </div>
-        {/* <QuoteList quotes={shuffled.slice(0, 10)} /> */}
+        {viewMode === 'MODAL' ? (
+          <>
+            <Quote quoteData={currentQuote} />
+            <div className="text-center p-8">
+              <Control
+                width="40"
+                height="40"
+                icon="arrow-back"
+                color="white"
+                onClickFunction={handleBackButton}
+              />
+              <Control
+                width={'40'}
+                height={'40'}
+                icon="arrow-forward"
+                color="white"
+                onClickFunction={handleNextButton}
+              />
+            </div>
+          </>
+        ) : (
+          <QuoteList quotes={shuffled.slice(0, 10)} />
+        )}
       </main>
       {/* <footer className={styles.footer}>Quotebook</footer> */}
     </>

@@ -1,3 +1,4 @@
+import Control from './control'
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
@@ -13,8 +14,36 @@ const Quote = ({
         <ReactMarkdown>{text}</ReactMarkdown>
       </div>
       <hr />
-      <p className="my-4">- {author}</p>
-      <div className="font-bold italic">Share</div>
+      <p className="mt-4 mb-8">- {author}</p>
+      <div className="flex flex-row justify-around">
+        <Control
+          width={'30'}
+          height={'30'}
+          icon="star"
+          color="#3A3B3C"
+          onClickFunction={() => {
+            console.log('star!')
+          }}
+        />
+        <Control
+          width={'30'}
+          height={'30'}
+          icon="copy"
+          color="#3A3B3C"
+          onClickFunction={() => {
+            console.log('copy!')
+          }}
+        />
+        <Control
+          width={'30'}
+          height={'30'}
+          icon="share"
+          color="#3A3B3C"
+          onClickFunction={() => {
+            console.log('share!')
+          }}
+        />
+      </div>
     </div>
   )
 }

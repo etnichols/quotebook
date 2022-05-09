@@ -12,6 +12,10 @@ export default function Document() {
           href="https://fonts.googleapis.com/css?family=Arvo:400,700|Noto+Serif:400,700,ital"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Radio+Canada:wght@300&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <body>
         <Main />
