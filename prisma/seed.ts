@@ -1,11 +1,11 @@
 import { PrismaClient } from '@prisma/client'
-import quotes from '../pages/quotes'
+import QUOTES from '../data/quotes'
 
 const prisma = new PrismaClient()
 
 async function main() {
   console.log(`Start seeding ...`)
-  for (const quote of quotes) {
+  for (const quote of QUOTES) {
     const created = await prisma.quote.create({
       data: quote,
     })

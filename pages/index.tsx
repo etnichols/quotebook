@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 
-import Control from '../components/control'
+import Button from '../components/button'
 import { List } from 'immutable'
 import type { NextPage } from 'next'
+import QUOTES from '../data/quotes'
 import Quote from '../components/quote'
 import QuoteList from '../components/quotelist'
-import quotes from './quotes'
 import { shuffle } from '../utils/shuffle'
 
-const shuffled = List(shuffle(quotes))
+const shuffled = List(shuffle(QUOTES))
 
 const Home: NextPage = () => {
   // https://color.adobe.com/Vintage-Ralph-Lauren-color-theme-2216979
@@ -74,19 +74,19 @@ const Home: NextPage = () => {
           <>
             <Quote quoteData={currentQuote} />
             <div className="text-center p-8">
-              <Control
+              <Button
                 width="40"
                 height="40"
-                icon="arrow-back"
-                color="white"
-                onClickFunction={handleBackButton}
+                iconName="arrow-back"
+                iconColor="white"
+                onClick={handleBackButton}
               />
-              <Control
+              <Button
                 width={'40'}
                 height={'40'}
-                icon="arrow-forward"
-                color="white"
-                onClickFunction={handleNextButton}
+                iconName="arrow-forward"
+                iconColor="white"
+                onClick={handleNextButton}
               />
             </div>
           </>

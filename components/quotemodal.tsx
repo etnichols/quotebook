@@ -1,7 +1,7 @@
-import Quote from './Quote'
+import Quote from './quote'
 import React from 'react'
 
-const QuoteModal = ({ quoteData }) => {
+const QuoteModal = ({ quoteData }: { quoteData: any }) => {
   return (
     <>
       <Quote quoteData={quoteData} />

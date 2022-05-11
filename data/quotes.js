@@ -1,6 +1,6 @@
 const UNKNOWN = 'Unknown'
 
-module.exports = [
+const QUOTES = [
   {
     text: `Joy and woe are woven fine,  \nA clothing for the soul divine,  \n Under every grief and pine,  \nRuns a joy with silken twine.  \nIt is right it should be so,  \nWe were made for joy and woe,  \nAnd when this we rightly know,  \nThrough the world we safely go.`,
     author: 'William Blake',
@@ -478,3 +478,5 @@ module.exports = [
     author: 'Unknown',
   },
 ]
+
+export default QUOTES
