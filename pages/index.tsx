@@ -49,13 +49,13 @@ const Home: NextPage = () => {
   return (
     <>
       <main
-        className="text-center content-center overflow-auto h-screen"
+        className="text-center content-center overflow-auto h-screen pb-16"
         style={{
           backgroundColor: randomColor(),
           transition: 'background-color 1s ease',
         }}
       >
-        <h1 className="text-white text-3xl my-8 drop-shadow-sm">Quotebook</h1>
+        <h1 className="text-white text-3xl my-8 drop-shadow-sm underline">Quotebook</h1>
         <div className="flex flex-row justify-around">
           <button
             onClick={() => setViewMode(viewMode === 'LIST' ? 'MODAL' : 'LIST')}

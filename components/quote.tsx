@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 
 import Button from './button'
 import ReactMarkdown from 'react-markdown'
+import { isMobile } from 'react-device-detect'
+import toast from 'react-hot-toast'
 
 const Quote = ({
   quoteData,
@@ -24,7 +26,14 @@ const Quote = ({
           iconName="copy"
           iconColor="#3A3B3C"
           onClick={() => {
-            console.log('copy!')
+            navigator.clipboard
+              .writeText(
+                `Check out this quote on quotebook.xyz: ${window.location.href}`
+              )
+              .then(
+                () => void toast.success('Link copied to clipboard'),
+                () => void toast.success('Could not copy :(')
+              )
           }}
         />
         <Button
@@ -36,15 +45,26 @@ const Quote = ({
             setStarred(!starred)
           }}
         />
-        <Button
-          width={'30'}
-          height={'30'}
-          iconName="share"
-          iconColor="#3A3B3C"
-          onClick={() => {
-            console.log('share!')
-          }}
-        />
+        {isMobile && (
+          <Button
+            width={'30'}
+            height={'30'}
+            iconName="share"
+            iconColor="#3A3B3C"
+            onClick={() => {
+              if (navigator.share) {
+                navigator
+                  .share({
+                    title: document.title,
+                    text: `Check out this quote on quotebook.xyz:`,
+                    url: window.location.href,
+                  })
+                  .then(() => console.log('Successful share! 🎉'))
+                  .catch((err) => console.error(err))
+              }
+            }}
+          />
+        )}
       </div>
     </div>
   )
